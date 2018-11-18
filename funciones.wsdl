@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions targetNamespace="http://localhost/tarea5" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://localhost/tarea5" xmlns:soap-env="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+
+
+    <wsdl:types>
+
+        <xsd:schema targetNamespace="http://localhost/tarea5"/>
+
+    </wsdl:types>
+
+    <wsdl:message name="accesoBDRequest"/>
+
+
+    <wsdl:message name="accesoBDResponse">
+
+        <wsdl:part name="accesoBDReturn" type="xsd:string"/>
+
+    </wsdl:message>
+
+    <wsdl:message name="getVoluntariosRequest"/>
+
+
+    <wsdl:message name="getVoluntariosResponse">
+
+        <wsdl:part name="getVoluntariosReturn" type="soap-enc:array"/>
+
+    </wsdl:message>
+
+    <wsdl:message name="getAnunciosPublicosRequest"/>
+
+
+    <wsdl:message name="getAnunciosPublicosResponse">
+
+        <wsdl:part name="getAnunciosPublicosReturn" type="soap-enc:array"/>
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getParticipacionVoluntariosRequest">
+
+        <wsdl:part name="login" type="xsd:string"/>
+
+    </wsdl:message>
+
+
+    <wsdl:message name="getParticipacionVoluntariosResponse">
+
+        <wsdl:part name="getParticipacionVoluntariosReturn" type="xsd:string"/>
+
+    </wsdl:message>
+
+
+    <wsdl:portType name="FuncionesPortType">
+
+
+        <wsdl:operation name="accesoBD">
+
+            <wsdl:documentation>Función que establece la conexión a la base de datos voluntarios3, si no puede conectarse, devuelve el error</wsdl:documentation>
+
+            <wsdl:input message="tns:accesoBDRequest"/>
+
+            <wsdl:output message="tns:accesoBDResponse"/>
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getVoluntarios">
+
+            <wsdl:documentation>Función que muestra por pantalla el login y el email de todos los anunciantes registrados en la base de datos</wsdl:documentation>
+
+            <wsdl:input message="tns:getVoluntariosRequest"/>
+
+            <wsdl:output message="tns:getVoluntariosResponse"/>
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getAnunciosPublicos">
+
+            <wsdl:documentation>Función que muestra por pantalla la fecha y el contenido de todos los anuncios que sean públicos</wsdl:documentation>
+
+            <wsdl:input message="tns:getAnunciosPublicosRequest"/>
+
+            <wsdl:output message="tns:getAnunciosPublicosResponse"/>
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getParticipacionVoluntarios">
+
+            <wsdl:documentation>Función que muestra el total de anuncios públicos y el total de anuncios privados del voluntario con login pasado por parámetro</wsdl:documentation>
+
+            <wsdl:input message="tns:getParticipacionVoluntariosRequest"/>
+
+            <wsdl:output message="tns:getParticipacionVoluntariosResponse"/>
+
+        </wsdl:operation>
+
+    </wsdl:portType>
+
+
+    <wsdl:binding name="FuncionesBinding" type="tns:FuncionesPortType">
+
+        <soap-env:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+
+
+        <wsdl:operation name="accesoBD">
+
+            <soap-env:operation style="rpc" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/tarea5/servicio.php?method=accesoBD"/>
+
+
+            <wsdl:input>
+
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
+
+            </wsdl:input>
+
+
+            <wsdl:output>
+
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
+
+            </wsdl:output>
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getVoluntarios">
+
+            <soap-env:operation style="rpc" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/tarea5/servicio.php?method=getVoluntarios"/>
+
+
+            <wsdl:input>
+
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
+
+            </wsdl:input>
+
+
+            <wsdl:output>
+
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
+
+            </wsdl:output>
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getAnunciosPublicos">
+
+            <soap-env:operation style="rpc" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/tarea5/servicio.php?method=getAnunciosPublicos"/>
+
+
+            <wsdl:input>
+
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
+
+            </wsdl:input>
+
+
+            <wsdl:output>
+
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
+
+            </wsdl:output>
+
+        </wsdl:operation>
+
+
+        <wsdl:operation name="getParticipacionVoluntarios">
+
+            <soap-env:operation style="rpc" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/tarea5/servicio.php?method=getParticipacionVoluntarios"/>
+
+
+            <wsdl:input>
+
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
+
+            </wsdl:input>
+
+
+            <wsdl:output>
+
+                <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded"/>
+
+            </wsdl:output>
+
+        </wsdl:operation>
+
+    </wsdl:binding>
+
+
+    <wsdl:service name="Funciones">
+
+        <wsdl:documentation/>
+
+
+        <wsdl:port name="FuncionesPort" binding="tns:FuncionesBinding">
+
+            <soap-env:address location="http://localhost/tarea5/servicio.php"/>
+
+        </wsdl:port>
+
+    </wsdl:service>
+
+</wsdl:definitions>

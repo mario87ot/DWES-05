@@ -1,0 +1,101 @@
+/*
+ * @Author Mario David Ordóñez Tercero DWES 2017/2018
+ * @Version 1.0
+ */
+
+
+/*Color de fondo, tipo de la fuente de letra y tamaño.*/
+body {
+	background-color:azure;
+    font-family: arial;
+    font-size: 20px;
+}
+
+/*Se centra el contenido en la pantalla*/
+#contenedor {
+    margin: 0% 15% 5% 15%;
+}
+
+
+/*Color, tamaño y posición de la etiqueta html h1*/
+h1{  
+    text-align: center;
+    font-size: 46px;
+}
+
+
+/*Color y tamaño de la etiqueta html h2*/
+h2{
+    font-size: 30px;
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+
+/*Opciones de las tablas que se generan.*/
+table{
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid;
+    margin:auto;
+    border-collapse: collapse;
+}
+
+table tr{
+    width: 100%;
+    text-align: center;
+}
+
+table tr td {
+    text-align: center;
+    border: 1px solid;
+}
+
+label{
+    color: #ffffff;
+}
+
+table caption{
+    text-align: center;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+th{
+   background-color:cadetblue; 
+}
+
+.fila{
+    background-color: #ffffff;
+}
+
+.divConsulta{
+    width:60%;
+    margin:auto;
+}
+/*Opciones del botón consulta.*/
+.botonConsulta {
+	background-color:#10B1E1;
+	color:#fff;
+	font-size: 15px;
+	font-weight:bold;
+	padding:6px 12px;
+    border: 4px solid #10B1E1;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+
+/*Mensaje de error*/
+.error{
+    font-size: 22px;
+    color: #CA1E0A;
+}
+
+/* Texto del Footer centrado y en blanco.*/
+footer{
+    text-align: center;
+    color: #ffffff;
+}
